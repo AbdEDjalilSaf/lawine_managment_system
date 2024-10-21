@@ -1,0 +1,39 @@
+{
+  "name": "lawyer-system-managment",
+  "version": "0.0.0",
+  "description": "Lawyer System Mangment server",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.ts",
+    "start": "ts-node server.ts",
+    "build": "tsc",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdEDjalilSaf/lawine_managment_system.git"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "mysql"
+  ],
+  "author": "ReDhaBenKortbi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbdEDjalilSaf/lawine_managment_system/issues"
+  },
+  "homepage": "https://github.com/AbdEDjalilSaf/lawine_managment_system#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.7",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "lawyer-system-managment": "file:"
+  }
+}
