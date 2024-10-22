@@ -2,11 +2,11 @@
   "name": "lawyer-system-managment",
   "version": "0.0.0",
   "description": "Lawyer System Mangment server",
+  "type": "module",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.ts",
-    "start": "ts-node server.ts",
-    "build": "tsc",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
     "test": "npm test"
   },
   "repository": {
@@ -25,15 +25,13 @@
   },
   "homepage": "https://github.com/AbdEDjalilSaf/lawine_managment_system#readme",
   "devDependencies": {
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.7.7",
     "express": "^4.21.1",
-    "nodemon": "^3.1.7",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "nodemon": "^3.1.7"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "lawyer-system-managment": "file:"
+    "lawyer-system-managment": "file:",
+    "mysql2": "^3.11.3",
+    "sequelize": "^6.37.4"
   }
 }
