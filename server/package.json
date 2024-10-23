@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Lawyer System Mangment server",
   "type": "module",
+  "module": "es6",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
@@ -30,8 +31,11 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
+    "express-session": "^1.18.1",
     "lawyer-system-managment": "file:",
     "mysql2": "^3.11.3",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^6.37.4"
   }
 }

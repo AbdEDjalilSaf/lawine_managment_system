@@ -6,14 +6,14 @@ const user = envConfig.MYSQL_USER;
 const password = envConfig.MYSQL_PASSWORD;
 const host = envConfig.MYSQL_HOST;
 
-const sequelize = new Sequelize(dbName, user, password, {
+export const connectionInstance = new Sequelize(dbName, user, password, {
   host,
   dialect: "mysql",
 });
 
 export default async function connectDatabase() {
   try {
-    await sequelize.authenticate();
+    await connectionInstance.authenticate();
     console.log("Connection has been established successfully.");
   } catch (error) {
     console.error("Unable to connect to the database:", error);
@@ -24,7 +24,7 @@ export default async function connectDatabase() {
 export const gracefulShutdown = () => {
   console.log("Shutting down gracefully...");
   // Optionally close database connection and other resources
-  sequelize
+  connectionInstance
     .close()
     .then(() => {
       console.log("Database connection closed.");

@@ -7,4 +7,5 @@ export const envConfig = {
   MYSQL_PASSWORD: process.env.MYSQL_PASSWORD,
   MYSQL_DB: process.env.MYSQL_DB,
   MYSQL_HOST: process.env.MYSQL_HOST,
+  SESSION_SECRET: process.env.SESSION_SECRET,
 };
