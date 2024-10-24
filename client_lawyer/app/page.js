@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import  Courtimage  from '@/public/courtImage.jpeg'
-import  LawyerTwo  from '@/public/lawyerTwo.jpg'
+import  LawyerTwo  from '@/public/lawyerTwo.jpeg'
 import  LawyerFour  from '@/public/lawyerFour.jpg'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -13,7 +13,7 @@ export default function Page() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm ">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150" className='w-44'>
   {/* <!-- Text stylized as an avalanche --> */}
   <text x="50%" y="60%" fontFamily="Arial, sans-serif" fontSize="60" fill="#004477" fontWeight="bold" textAnchor="middle" letterSpacing="5">
@@ -36,7 +36,7 @@ export default function Page() {
           <Link href="/logIn">
           <Button  className="bg-blue-700 hover:bg-blue-800"> Log In </Button>
           </Link>
-          <Link href="/signUp">
+          <Link href="/regester">
           <Button
       variant="outline"
       className={` bg-white text-blue-700 border-blue-700 hover:bg-blue-700 hover:text-white hover:border-blue-700 focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 transition-all duration-300 ease-in-out`}> Sign up </Button> 
