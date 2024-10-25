@@ -5,7 +5,7 @@ import { app } from "./app.js";
 import { envConfig } from "./config/env.js";
 
 //server
-const serverInstance = http.createServer(app);
+export const serverInstance = http.createServer(app);
 
 const port = envConfig.PORT || 3000;
 
