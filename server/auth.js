@@ -2,7 +2,8 @@ import session from "express-session";
 import { envConfig } from "./config/env.js";
 import passport from "passport";
 import User from "./models/users.js";
-import { LocalStrategy } from "passport-local";
+import LocalStrategy from "passport-local";
+import { loginUser } from "./controllers/loginUser.js";
 
 export const sessionConfig = session({
   secret: envConfig.SESSION_SECRET,
@@ -14,28 +15,7 @@ export const initializePassport = passport.initialize();
 export const passportSession = passport.session();
 
 //login strategy
-passport.use(
-  new LocalStrategy({ usernameField: "email" }, async function (
-    email,
-    password,
-    done
-  ) {
-    // 'email' and 'password' are the values passed from req.body
-    try {
-      const user = await User.findOne({ where: { email } });
-      if (!user) {
-        return done(null, false);
-      } else if (password !== user.password) {
-        // This is where you compare the passwords
-        return done(null, false);
-      } else {
-        return done(null, user);
-      }
-    } catch (error) {
-      return done(error);
-    }
-  })
-);
+passport.use(new LocalStrategy({ usernameField: "email" }, loginUser));
 
 //serialize and deserialize
 passport.serializeUser((user, callback) => {

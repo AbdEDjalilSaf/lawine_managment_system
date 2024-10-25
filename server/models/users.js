@@ -12,26 +12,14 @@ User.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    firstName: {
+    fullName: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    phoneNumber: {
-      type: DataTypes.INTEGER,
       allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-    },
-    photo: {
-      type: DataTypes.STRING,
-      allowNull: true,
     },
     password: {
       type: DataTypes.STRING,
