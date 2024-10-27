@@ -8,14 +8,13 @@ import { Button } from "@/components/ui/button"
 const signUpPage = () => {
   return (
     <>
+     
      <div className="flex  md:flex-row h-screen">
     {/* Left side with image, full width on small screens */}
     <div className="md:w-1/2 w-full h-64 md:h-full relative sc:hidden md:block  ">
       <Image 
         src={LawyerTwo} 
         alt="Decorative image" 
-        layout="fill" 
-        objectFit="cover"
         priority={true}
         className="h-full w-full object-cover"
       />
