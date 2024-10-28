@@ -8,4 +8,7 @@ export const envConfig = {
   MYSQL_DB: process.env.MYSQL_DB,
   MYSQL_HOST: process.env.MYSQL_HOST,
   SESSION_SECRET: process.env.SESSION_SECRET,
+  GOOGLE_ID: process.env.GOOGLE_ID,
+  GOOGLE_SECRET: process.env.GOOGLE_SECRET,
+  GOOGLE_CALLBACK: process.env.GOOGLE_REDIRECT_URL,
 };
