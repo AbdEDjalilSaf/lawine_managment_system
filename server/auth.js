@@ -1,9 +1,10 @@
 import session from "express-session";
 import { envConfig } from "./config/env.js";
 import passport from "passport";
-import User from "./models/users.js";
 import LocalStrategy from "passport-local";
+import GoogleStrategy from "passport-google-oauth20";
 import { loginUser } from "./controllers/loginUser.js";
+import { loginGoogleUser } from "./controllers/google/loginGoogleUser.js";
 
 export const sessionConfig = session({
   secret: envConfig.SESSION_SECRET,
@@ -16,7 +17,17 @@ export const passportSession = passport.session();
 
 //login strategy
 passport.use(new LocalStrategy({ usernameField: "email" }, loginUser));
-
+//google auth
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: envConfig.GOOGLE_ID,
+      clientSecret: envConfig.GOOGLE_SECRET,
+      callbackURL: envConfig.GOOGLE_CALLBACK,
+    },
+    loginGoogleUser
+  )
+);
 //serialize and deserialize
 passport.serializeUser((user, callback) => {
   process.nextTick(() => {
