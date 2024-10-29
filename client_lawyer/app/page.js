@@ -58,7 +58,7 @@ export default function Page() {
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">Experience the Kansas Expertise</h1>
-            <p className="text-xl mb-8">Lawine's office : A team of local lawyers with national vision</p>
+            <p className="text-xl mb-8">Lawine&rsquo;s office : A team of local lawyers with national vision</p>
             <Link href="logIn">
             <Button className="bg-blue-700 hover:bg-blue-800">Get started</Button>
             </Link>
@@ -69,7 +69,7 @@ export default function Page() {
       {/* About Us Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Welcome to Lawine's office</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Welcome to Lawine&rsquo;s office</h2>
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
             <Image src={LawyerTwo} alt="About Us"  className="rounded-lg xl:w-[700px] xl:h-[300px] lg:w-[500px] lg:h-[200px] md:w-[500px] md:h-[200px] sm:w-[600px] sm:h-[300px] w-[300px] h-[200px] shadow-lg" />

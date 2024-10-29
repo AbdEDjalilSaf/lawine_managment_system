@@ -23,7 +23,7 @@ const signUpPage = () => {
     {/* Right side with form */}
     <div className="md:w-1/2 w-full flex items-center justify-center bg-white py-8 px-4 md:py-0">
       <div className="max-w-md w-full relative px-6 py-12">
-        <h1 className="text-3xl font-bold mb-9 text-center md:text-left">Create Account</h1>
+        <h1 className="text-3xl font-bold mb-9 text-center md:text-left">Welcome</h1>
 
         <div className="mb-4">
           <Button variant="secondary" className="w-full mb-2">
@@ -35,9 +35,9 @@ const signUpPage = () => {
 
      <RegisterUserForm />
       </div>
-      <p className="text-center absolute bottom-4 right-5 text-black">
-              @ copywrirte - all rights reserved 2024
-            </p>
+      <p className="text-center absolute bottom-4 right-5 text-muted-foreground text-sm">
+          © Copyright - All rights reserved 2024
+        </p>
     </div>
   </div>
 
