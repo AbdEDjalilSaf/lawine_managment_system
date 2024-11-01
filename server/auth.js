@@ -36,20 +36,16 @@ passport.use(
 );
 //serialize and deserialize
 passport.serializeUser((user, callback) => {
-  console.log("from serialize ", user.dataValues);
   process.nextTick(() => {
     return callback(null, user.dataValues.id);
   });
 });
 
 passport.deserializeUser(async (id, callback) => {
-  console.log("from desirialize", id);
   try {
     const user = await User.findByPk(id);
-    console.log("deserialized user: ", user.dataValues);
     return callback(null, user.dataValues);
   } catch (err) {
-    console.log("from deserialize error", err);
     return callback(err);
   }
 });
