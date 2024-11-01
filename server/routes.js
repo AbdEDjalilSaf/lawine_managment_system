@@ -5,21 +5,9 @@ import { logoutUser } from "./controllers/logoutUser.js";
 import passport from "passport";
 export const authRouter = express.Router();
 
-authRouter
-  .route("/register")
-  .post(registerUser, authenticateUser, (req, res) => {
-    res.status(200).json({
-      message: "Register successfull!",
-      user: req.user,
-    });
-  });
+authRouter.post("/register", registerUser);
 
-authRouter.route("/login").post(authenticateUser, (req, res) => {
-  return res.status(200).json({
-    message: "login successfull",
-    user: req.user,
-  });
-});
+authRouter.route("/login").post(authenticateUser);
 
 authRouter.route("/logout").post(logoutUser);
 
@@ -29,11 +17,17 @@ authRouter.get(
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
+// Callback route after Google redirects back
 authRouter.get(
   "/google/callback",
-  passport.authenticate("google"),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.json({ message: "login successful", user: req.user });
+  passport.authenticate("google", {
+    failureRedirect: "http://localhost:5137/login", // In case of failure
+    session: true, // Keep the session (persistent login)
+  }),
+  (req, res) => {
+    console.log("Response from google callback successfull");
+    console.log("is Request authenticated now: ", req.isAuthenticated());
+    // Successful authentication, redirect to the frontend /profile page with data
+    res.redirect(`http://localhost:5173/profile`);
   }
 );

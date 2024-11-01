@@ -25,6 +25,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    googleId: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     // Other model options go here
@@ -33,4 +37,5 @@ User.init(
     tableName: "users", //table name inside database;
   }
 );
+
 export default User;

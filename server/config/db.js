@@ -9,6 +9,7 @@ const host = envConfig.MYSQL_HOST;
 export const connectionInstance = new Sequelize(dbName, user, password, {
   host,
   dialect: "mysql",
+  logging: false
 });
 
 export default async function connectDatabase() {
