@@ -1,4 +1,5 @@
-import GoogleUser from "../../models/googleUsers.js";
+import User from "../../models/users.js";
+import { generateRandomPassword } from "../../utils/generateRandomPassword.js";
 export const loginGoogleUser = async (
   accessToken,
   refreshToken,
@@ -6,18 +7,17 @@ export const loginGoogleUser = async (
   cb
 ) => {
   try {
-    const [user, created] = await GoogleUser.findOrCreate({
+    const [user, created] = await User.findOrCreate({
       where: { googleId: profile.id },
       defaults: {
         fullName: profile._json.name,
         email: profile._json.email,
+        password: generateRandomPassword(),
       },
     });
 
-    console.log(`User has been ${created ? "created" : "found"}`);
     return cb(null, user);
   } catch (error) {
-    console.error("Error during Google login:", error);
     return cb(error);
   }
 };
