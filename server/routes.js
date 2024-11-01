@@ -4,12 +4,16 @@ import { authenticateUser } from "./middlewares/authenticateUser.js";
 import { logoutUser } from "./controllers/logoutUser.js";
 import passport from "passport";
 export const authRouter = express.Router();
+import { ensureAuthenticated } from "./utils/ensureAuthentication.js";
+import { getCurrentUser } from "./controllers/getCurrentUser.js";
 
 authRouter.post("/register", registerUser);
 
 authRouter.route("/login").post(authenticateUser);
 
 authRouter.route("/logout").post(logoutUser);
+
+authRouter.get("/check-auth", ensureAuthenticated, getCurrentUser);
 
 //google
 authRouter.get(

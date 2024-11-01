@@ -11,6 +11,10 @@ const registerTestRecord = {
   email: "ahmed@gmail.com",
   password: "Reda6aboob#",
 };
+const loginTestRecord = {
+  email: registerTestRecord.email,
+  password: registerTestRecord.password,
+};
 
 suite("Authentication API test:", () => {
   suiteSetup(async () => {
@@ -170,6 +174,32 @@ suite("Authentication API test:", () => {
             "message",
             "Password is wrong, try again",
             "message prop is present in res body and has the correct value"
+          );
+          done();
+        });
+    });
+    test("check no authenticated users", (done) => {
+      chai.request
+        .execute(app)
+        .get("/auth/check-auth")
+        .end((err, res) => {
+          assert.isNull(err, "No internal errors");
+          assert.equal(res.status, 401, "unauth users response return 401");
+          done();
+        });
+    });
+    test("valid user trying to loggin", (done) => {
+      chai.request
+        .execute(app)
+        .post("/auth/login")
+        .send(loginTestRecord)
+        .end((err, res) => {
+          assert.isNull(err, "No internal errors");
+          assert.equal(res.status, 200, "valid logged user return 200");
+          assert.containsAllKeys(
+            res.body,
+            ["message", "user"],
+            "body should have message and user props"
           );
           done();
         });
