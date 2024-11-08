@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "description": "Lawyer System Mangment server",
   "type": "module",
+  "module": "es6",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "test": "npm test"
+    "test": "mocha 'tests/**/*.test.js'"
   },
   "repository": {
     "type": "git",
@@ -25,13 +26,23 @@
   },
   "homepage": "https://github.com/AbdEDjalilSaf/lawine_managment_system#readme",
   "devDependencies": {
+    "chai": "^5.1.2",
+    "chai-http": "^5.1.1",
     "express": "^4.21.1",
+    "mocha": "^10.7.3",
     "nodemon": "^3.1.7"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "express-session": "^1.18.1",
     "lawyer-system-managment": "file:",
     "mysql2": "^3.11.3",
+    "nyc": "^17.1.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^6.37.4"
   }
 }
