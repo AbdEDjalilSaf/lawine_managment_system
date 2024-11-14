@@ -1,26 +1,21 @@
 import cors from "cors";
 import express from "express";
-import { initializePassport, passportSession, sessionConfig } from "./auth.js";
-import { authRouter } from "./routes.js";
-import { ensureAuthenticated } from "./utils/ensureAuthentication.js";
+
+import {
+  initializePassport,
+  passportSession,
+} from "./config/passportConfig.js";
+import { sessionConfig } from "./config/sessionConfig.js";
+import corsConfig from "./config/corsConfig.js";
+
+import authRoutes from "./routes/authRoutes.js";
+import casesRoutes from "./routes/casesRoutes.js";
 
 export const app = express();
-var whitelist = ["http://localhost:3000", "http://localhost:5173", null]; // Add `null` for local testing
 
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-};
+app.use(cors(corsConfig.configuration()));
 
-app.use(cors(corsOptions));
-
-// Other middlewares
+// Register middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(sessionConfig);
@@ -28,8 +23,5 @@ app.use(initializePassport);
 app.use(passportSession);
 
 // Routes
-app.use("/auth", authRouter);
-
-app.get("/hello-world", (req, res) => {
-  res.send("Hello, World!");
-});
+app.use("/auth", authRoutes);
+app.use("/cases", casesRoutes);

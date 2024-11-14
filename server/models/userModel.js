@@ -1,12 +1,9 @@
-//define the user model;
-import { Sequelize, DataTypes, Model } from "sequelize";
-import { connectionInstance } from "../config/db.js";
+import { DataTypes } from "sequelize";
+import db from "../config/dbConfig.js";
 
-class User extends Model {}
-
-User.init(
+const User = db.connection.define(
+  "User", // Model name
   {
-    // Model attributes are defined
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -31,10 +28,10 @@ User.init(
     },
   },
   {
-    // Other model options go here
-    sequelize: connectionInstance, // We need to pass the connection instance
-    modelName: "User", // We need to choose the model
-    tableName: "users", //table name inside database;
+    tableName: "users", // Table name
+    timestamps: true, // Enables createdAt and updatedAt fields
+    updatedAt: "updatedAt",
+    createdAt: "createdAt",
   }
 );
 
