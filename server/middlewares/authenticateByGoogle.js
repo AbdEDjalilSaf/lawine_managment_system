@@ -1,6 +1,6 @@
-import User from "../../models/users.js";
-import { generateRandomPassword } from "../../utils/generateRandomPassword.js";
-export const loginGoogleUser = async (
+import User from "../models/userModel.js";
+import userUtils from "../utils/user/userUtils.js";
+export const authenticateByGoogle = async (
   accessToken,
   refreshToken,
   profile,
@@ -12,7 +12,7 @@ export const loginGoogleUser = async (
       defaults: {
         fullName: profile._json.name,
         email: profile._json.email,
-        password: generateRandomPassword(),
+        password: userUtils.generateRandomPassword(),
       },
     });
 

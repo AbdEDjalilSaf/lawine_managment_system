@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-export const envConfig = {
+const envConfig = {
   NODE_ENV: process.env.NODE_ENV || "development",
   PORT: process.env.PORT || 3000,
   MYSQL_USER: process.env.MYSQL_USER,
@@ -12,3 +12,4 @@ export const envConfig = {
   GOOGLE_SECRET: process.env.GOOGLE_SECRET,
   GOOGLE_CALLBACK: process.env.GOOGLE_REDIRECT_URL,
 };
+export default envConfig;
