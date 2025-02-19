@@ -1,8 +1,8 @@
 
 import Image from 'next/image'
-import Link from 'next/link'
 import  LawyerTwo  from '@/public/lawyerTwo.jpeg'
-import { Button } from "@/components/ui/button"
+// import  GoogleImage  from '@/public/google.png'
+import GoogleLogin from '@/components/google-login'
 import SignInUserForm from "@/components/forms/LogInUserForm"
 
 
@@ -26,9 +26,8 @@ export default function signInPage() {
           <h1 className="text-3xl font-bold mb-9 text-center md:text-left">Welcome Back</h1>
 
           <div className="mb-4">
-            <Button variant="outline" className="w-full mb-2">
-              Log in with Google
-            </Button>
+          <GoogleLogin />
+
           </div>
 
           <div className="relative my-4">
