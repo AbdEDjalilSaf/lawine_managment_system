@@ -1,19 +1,16 @@
+import React from 'react';
+import Image from 'next/image';
+import LawyerTwo from '@/public/lawyerTwo.jpeg';
+import GoogleLogin from '@/components/google-login'; // Ensure this is the correct import
+import LogInUserForm  from '../../components/forms/LogInUserForm';  // Ensure this is the correct import
 
-import Image from 'next/image'
-import  LawyerTwo  from '@/public/lawyerTwo.jpeg'
-// import  GoogleImage  from '@/public/google.png'
-import GoogleLogin from '@/components/google-login'
-import SignInUserForm from "@/components/forms/LogInUserForm"
-
-
-export default function signInPage() {
-
+export default function SignInPage() {
   return (
     <div className="flex md:flex-row h-screen">
       {/* Left side with image, full width on small screens */}
       <div className="md:w-1/2 w-full h-64 md:h-full relative sc:hidden md:block">
-        <Image 
-          src={LawyerTwo} 
+        <Image
+          src={LawyerTwo}
           alt="Decorative image"
           priority={true}
           className="h-full w-full object-cover"
@@ -26,8 +23,7 @@ export default function signInPage() {
           <h1 className="text-3xl font-bold mb-9 text-center md:text-left">Welcome Back</h1>
 
           <div className="mb-4">
-          <GoogleLogin />
-
+            <GoogleLogin />
           </div>
 
           <div className="relative my-4">
@@ -40,43 +36,14 @@ export default function signInPage() {
               </span>
             </div>
           </div>
-<SignInUserForm />
-           {/* <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  placeholder="name@example.com"
-                  {...form.register("email")}
-                />
-                 {form.formState.errors.email && (
-                  <p className="text-sm text-red-500">{form.formState.errors.email.message}</p>
-                )} 
 
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Enter your password"
-                  {...form.register("password")}
-                />
-                {form.formState.errors.password && (
-                  <p className="text-sm text-red-500">{form.formState.errors.password.message}</p>
-                )}
-              </div>
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Logging in..." : "Log In"}
-              </Button>
-            </form>
-          </Form>  */}
+          <LogInUserForm />
+
+          <p className="text-center absolute bottom-4 right-5 text-muted-foreground text-sm">
+            © Copyright - All rights reserved 2024
+          </p>
         </div>
-        <p className="text-center absolute bottom-4 right-5 text-muted-foreground text-sm">
-          © Copyright - All rights reserved 2024
-        </p>
       </div>
     </div>
-  )
+  );
 }

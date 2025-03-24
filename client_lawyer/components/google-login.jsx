@@ -13,7 +13,6 @@ const onSubmit = async ()=>{
 window.location.href='https://4d05-41-109-93-17.ngrok-free.app/auth/google'
 
 
-
 }
 
 

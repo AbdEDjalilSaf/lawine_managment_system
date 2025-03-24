@@ -1,5 +1,6 @@
-import { Roboto } from 'next/font/google'
+import { Roboto } from 'next/font/google';
 import "./globals.css";
+import ProviderWrapper from './ProviderWrapper'; // Ensure correct path & import
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -18,7 +19,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${roboto.variable} font-sans`}>
-        {children}
+        <ProviderWrapper>
+          {children}
+        </ProviderWrapper>
       </body>
     </html>
   );

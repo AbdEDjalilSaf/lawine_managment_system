@@ -1,12 +1,14 @@
 import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://9238-41-109-160-76.ngrok-free.app';
+const API_URL = 'https://4607-197-207-186-53.ngrok-free.app';
+// process.env.NEXT_PUBLIC_API_URL
+
 
 // --------------- log out -----------------
 export const logoutUser = async () => {
   try {
     const res = await axios.post(
-      `${API_URL}/auth/logout`,
+      `${API_URL}/api/auth/logout`,
       {},
       {
         headers: { "Content-Type": "application/json" },
@@ -30,7 +32,7 @@ export const loginUser = async (email,password) => {
     // };
   try {
     const response = await axios.post(
-      `${API_URL}/auth/login`,
+      `${API_URL}/api/auth`,
     {
       email,
       password
